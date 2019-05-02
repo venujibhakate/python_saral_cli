@@ -1,1 +1,4 @@
-fghjm,
+TODO-
+we have to make one function for get and show courses
+we have to choise course
+we have to make second function for get and show exercies 
