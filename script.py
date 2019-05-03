@@ -38,16 +38,18 @@ print(selectCourseId)
 
 
 exerciseUrl = "{0}/{1}/exercises".format(coursesUrl, selectCourseId)
-
-def exerciseFunction(exercise):
+# request1 = requests.get(exerciseUrl)
+# response1 = request1.json()
+# print response1
+def exerciseFunction(exerciseData):
     index = 0
-    id_list1 = []
-    while(index < len(exercise['data'])):
-        courses1=exercise['data'][index]
+    exerciseList = []
+    while(index < len(exerciseData['data'])):
+        exercise = exerciseData['data'][index]
         
-        course_id1=((courses1["slug"]))
-        print (course_id1)
-        id_list1.append(course_id1)
+        exerciseName = exercise["name"]
+        print (exerciseName)
+        exerciseList.append(exerciseName)
         index = index + 1
 
 coursesResponse = saralRequest(exerciseUrl)
