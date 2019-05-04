@@ -61,26 +61,8 @@ selectExercise = int(raw_input("Select the Exercise"))
 selectExerciseId = exerciseSlugList[selectExercise]
 print (selectExerciseId)
 
-
-
-# slugUrl = selectCourse +"/"+ selectCourseId+ "/exercise/getBySlug?slug=" + selectExerciseId
-# http://saral.navgurukul.org/api/courses/75/exercise/getBySlug?slug=requests__using-json
-# slugUrl = coursesUrl"/"+(str(courses)+"/exercise/getBySlug")
-
 slugUrl = "{0}/{1}/exercise/getBySlug?slug={2}".format(coursesUrl,selectCourseId,selectExerciseId,)
 print(slugUrl)
-
-
-
-
-
-
-
-
-
-
-
-
 
 # def contentAndchildEx(slug):
 
@@ -88,3 +70,14 @@ print(slugUrl)
 
 # slugResponse = saralRequest(slugUrl)
 # contentAndchildEx(slugResponse)
+
+
+
+
+
+
+
+
+
+
+
