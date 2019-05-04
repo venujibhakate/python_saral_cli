@@ -62,14 +62,15 @@ selectExerciseId = exerciseSlugList[selectExercise]
 print (selectExerciseId)
 
 slugUrl = "{0}/{1}/exercise/getBySlug?slug={2}".format(coursesUrl,selectCourseId,selectExerciseId,)
-print(slugUrl)
 
-# def contentAndchildEx(slug):
-
-
-
-# slugResponse = saralRequest(slugUrl)
-# contentAndchildEx(slugResponse)
+# request1 = requests.get(slugUrl)
+# response1 = request1.json()
+def contentAndchildEx(slug):
+        content = slug['content']
+        return content
+slugResponse = saralRequest(slugUrl)
+slugData=contentAndchildEx(slugResponse)
+print slugData
 
 
 
