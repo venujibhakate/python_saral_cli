@@ -41,16 +41,50 @@ exerciseUrl = "{0}/{1}/exercises".format(coursesUrl, selectCourseId)
 # request1 = requests.get(exerciseUrl)
 # response1 = request1.json()
 # print response1
+exerciseSlugList = []
 def exerciseFunction(exerciseData):
     index = 0
-    exerciseList = []
     while(index < len(exerciseData['data'])):
         exercise = exerciseData['data'][index]
-        
         exerciseName = exercise["name"]
-        print (exerciseName)
-        exerciseList.append(exerciseName)
+        exerciseSlug = exercise["slug"]
+        print index + 0,exerciseName,"***",exerciseSlug
+        exerciseSlugList.append(exerciseSlug)
         index = index + 1
+#     print exerciseSlugList
 
-coursesResponse = saralRequest(exerciseUrl)
-exerciseFunction(coursesResponse)
+exerciseResponse = saralRequest(exerciseUrl)
+exerciseFunction(exerciseResponse)
+
+print "......................................................"
+selectExercise = int(raw_input("Select the Exercise"))
+selectExerciseId = exerciseSlugList[selectExercise]
+print (selectExerciseId)
+
+
+
+# slugUrl = selectCourse +"/"+ selectCourseId+ "/exercise/getBySlug?slug=" + selectExerciseId
+# http://saral.navgurukul.org/api/courses/75/exercise/getBySlug?slug=requests__using-json
+# slugUrl = coursesUrl"/"+(str(courses)+"/exercise/getBySlug")
+
+slugUrl = "{0}/{1}/exercise/getBySlug?slug={2}".format(coursesUrl,selectCourseId,selectExerciseId,)
+print(slugUrl)
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def contentAndchildEx(slug):
+
+
+
+# slugResponse = saralRequest(slugUrl)
+# contentAndchildEx(slugResponse)
