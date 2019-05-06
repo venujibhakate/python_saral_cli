@@ -98,8 +98,7 @@ selectChildEx = int(raw_input("Selsec the ChildEx :-"))
 childExSlug = childSlugList[selectChildEx]
 print(childExSlug)
 
-slugUrl = "{0}/{1}/exercise/getBySlug?slug={2}".format(
-    coursesUrl, selectCourseId, childExSlug)
+slugUrl = "{0}/{1}/exercise/getBySlug?slug={2}".format(coursesUrl, selectCourseId, childExSlug)
 
 
 def contentChild(childSlug):
@@ -113,23 +112,41 @@ childExContent = contentChild(childContent)
 print childExContent
 
 print "**************************************************************************"
-choiceExercise = raw_input("Press Next(n/N) / Previous(p/P) / Back or Up (u/U) :- ")
-print "***************************************************************************"
-if choiceExercise == "n" or choiceExercise == "N":
-    childExSlug = childSlugList[selectChildEx+1]
-    print(childExSlug)
 
-    slugUrl = "{0}/{1}/exercise/getBySlug?slug={2}".format(
-        coursesUrl, selectCourseId, childExSlug)
+# def nextChild():
+childExSlug = childSlugList[selectChildEx+1]
+print(childExSlug)
 
-    def contentChild(childSlug):
-        content = childSlug["content"]
-        return content
-    childContent = saralRequest(slugUrl)
-    childExContent = contentChild(childContent)
+slugUrl = "{0}/{1}/exercise/getBySlug?slug={2}".format(coursesUrl, selectCourseId, childExSlug)
 
-    print childExContent
+def nextContentChild(childSlugNext):
+    content = childSlugNext["content"]
+    return content
+childContent = saralRequest(slugUrl)
+childExContentNext = nextContentChild(childContent)
 
+    # print childExContent
 
+childExSlug = childSlugList[selectChildEx-1]
+print(childExSlug)
+
+slugUrl = "{0}/{1}/exercise/getBySlug?slug={2}".format(coursesUrl, selectCourseId, childExSlug)
+def previousContentChild(childSlugPrevious):
+    content = childSlugPrevious["content"]
+    return content
+childContent = saralRequest(slugUrl)
+childExContentPrevious = previousContentChild(childContent)
+
+while True:
+    choiceExercise = raw_input("Press Next(n/N) / Previous(p/P) / Back or Up (u/U) / out (o/O):- ")
+    print "***************************************************************************"
+    if choiceExercise == "n" or choiceExercise == "N":
+        print childExContentNext
+    elif choiceExercise == "p" or choiceExercise == "P":
+        print childExContentPrevious
+    # elif choiceExercise == "u" or choiceExercise == "U":
+    #     print "z"
+    elif choiceExercise == "o" or choiceExercise == "O":
+        break
 # def start():
 #     pass

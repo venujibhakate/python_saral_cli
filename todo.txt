@@ -1,4 +1,4 @@
-TODO-
-we have to make one function for get and show courses
-we have to choise course
-we have to make second function for get and show exercies 
+Todo 
+we will make one function for calling the all function.
+after we will make code for privious and up.
+user input also we will put in function.
