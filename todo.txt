@@ -1,4 +1,0 @@
-Todo 
-we will make one function for calling the all function.
-after we will make code for privious and up.
-user input also we will put in function.
